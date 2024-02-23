@@ -209,7 +209,9 @@ public class RedisCache {
      * @return Hash中的对象
      */
     public <T> T getCacheMapValue(final String key, final String hKey) {
-        return redisTemplate.hgetSerializeData(key, hKey);
+//        return redisTemplate.hgetSerializeData(key, hKey);
+//        return redisTemplate.hgetSerializeData(key, hKey);
+        return null;
     }
 
     /**
