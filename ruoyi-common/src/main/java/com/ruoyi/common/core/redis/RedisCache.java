@@ -220,7 +220,8 @@ public class RedisCache {
      * @return Hash对象集合
      */
     public <T> List<T> getMultiCacheMapValue(final String key, final Collection<Object> hKeys) {
-        return redisTemplate.opsForHash().multiGet(key, hKeys);
+//        return redisTemplate.opsForHash().multiGet(key, hKeys);
+        return null;
     }
 
     /**
@@ -231,7 +232,8 @@ public class RedisCache {
      * @return 是否成功
      */
     public boolean deleteCacheMapValue(final String key, final String hKey) {
-        return redisTemplate.opsForHash().delete(key, hKey) > 0;
+//        return redisTemplate.opsForHash().delete(key, hKey) > 0;
+        return false;
     }
 
     /**

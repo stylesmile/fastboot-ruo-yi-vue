@@ -9,8 +9,9 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import io.github.stylesmile.server.Request;
+import io.github.stylesmile.server.Response;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import com.ruoyi.common.config.RuoYiConfig;
@@ -163,9 +164,9 @@ public class FileUtils
      * @param fileName 文件名
      * @return 编码后的文件名
      */
-    public static String setFileDownloadHeader(HttpServletRequest request, String fileName) throws UnsupportedEncodingException
+    public static String setFileDownloadHeader(Request request, String fileName) throws UnsupportedEncodingException
     {
-        final String agent = request.getHeader("USER-AGENT");
+        final String agent = request.getHeaders().get("USER-AGENT");
         String filename = fileName;
         if (agent.contains("MSIE"))
         {
@@ -197,7 +198,7 @@ public class FileUtils
      * @param response 响应对象
      * @param realFileName 真实文件名
      */
-    public static void setAttachmentResponseHeader(HttpServletResponse response, String realFileName) throws UnsupportedEncodingException
+    public static void setAttachmentResponseHeader(Response response, String realFileName) throws UnsupportedEncodingException
     {
         String percentEncodedFileName = percentEncode(realFileName);
 
@@ -209,7 +210,7 @@ public class FileUtils
                 .append("utf-8''")
                 .append(percentEncodedFileName);
 
-        response.addHeader("Access-Control-Expose-Headers", "Content-Disposition,download-filename");
+        response.setHeader("Access-Control-Expose-Headers", "Content-Disposition,download-filename");
         response.setHeader("Content-disposition", contentDispositionValue.toString());
         response.setHeader("download-filename", percentEncodedFileName);
     }

@@ -2,9 +2,8 @@ package com.ruoyi.common.utils.ip;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import javax.servlet.http.HttpServletRequest;
-import com.ruoyi.common.utils.ServletUtils;
 import com.ruoyi.common.utils.StringUtils;
+import io.github.stylesmile.server.Request;
 
 /**
  * 获取IP方法
@@ -25,10 +24,10 @@ public class IpUtils
      * 
      * @return IP地址
      */
-    public static String getIpAddr()
-    {
-        return getIpAddr(ServletUtils.getRequest());
-    }
+//    public static String getIpAddr()
+//    {
+//        return getIpAddr(ServletUtils.getRequest());
+//    }
 
     /**
      * 获取客户端IP
@@ -36,34 +35,34 @@ public class IpUtils
      * @param request 请求对象
      * @return IP地址
      */
-    public static String getIpAddr(HttpServletRequest request)
+    public static String getIpAddr(Request request)
     {
         if (request == null)
         {
             return "unknown";
         }
-        String ip = request.getHeader("x-forwarded-for");
+        String ip = request.getHeaders().get("x-forwarded-for");
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
         {
-            ip = request.getHeader("Proxy-Client-IP");
+            ip = request.getHeaders().get("Proxy-Client-IP");
         }
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
         {
-            ip = request.getHeader("X-Forwarded-For");
+            ip = request.getHeaders().get("X-Forwarded-For");
         }
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
         {
-            ip = request.getHeader("WL-Proxy-Client-IP");
+            ip = request.getHeaders().get("WL-Proxy-Client-IP");
         }
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
         {
-            ip = request.getHeader("X-Real-IP");
+            ip = request.getHeaders().get("X-Real-IP");
         }
 
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
-        {
-            ip = request.getRemoteAddr();
-        }
+//        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
+//        {
+//            ip = request.getRemoteAddr();
+//        }
 
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : getMultistageReverseProxyIp(ip);
     }
