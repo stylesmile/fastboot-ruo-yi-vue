@@ -207,6 +207,11 @@
     </build>
 
     <repositories>
+        <!-- maven 官方仓库-->
+        <repository>
+            <id>maven1</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
         <repository>
             <id>public</id>
             <name>aliyun nexus</name>
@@ -230,5 +235,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
