@@ -23,7 +23,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import javax.servlet.http.HttpServletResponse;
+
+import io.github.stylesmile.server.Request;
+import io.github.stylesmile.server.Response;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -532,7 +534,7 @@ public class ExcelUtil<T>
      * @param sheetName 工作表的名称
      * @return 结果
      */
-    public void exportExcel(HttpServletResponse response, List<T> list, String sheetName)
+    public void exportExcel(Response response, List<T> list, String sheetName)
     {
         exportExcel(response, list, sheetName, StringUtils.EMPTY);
     }
@@ -546,10 +548,10 @@ public class ExcelUtil<T>
      * @param title 标题
      * @return 结果
      */
-    public void exportExcel(HttpServletResponse response, List<T> list, String sheetName, String title)
+    public void exportExcel(Response response, List<T> list, String sheetName, String title)
     {
-        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        response.setCharacterEncoding("utf-8");
+//        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+//        response.setCharacterEncoding("utf-8");
         this.init(list, sheetName, title, Type.EXPORT);
         exportExcel(response);
     }
@@ -584,7 +586,7 @@ public class ExcelUtil<T>
      * @param sheetName 工作表的名称
      * @return 结果
      */
-    public void importTemplateExcel(HttpServletResponse response, String sheetName)
+    public void importTemplateExcel(Response response, String sheetName)
     {
         importTemplateExcel(response, sheetName, StringUtils.EMPTY);
     }
@@ -596,10 +598,10 @@ public class ExcelUtil<T>
      * @param title 标题
      * @return 结果
      */
-    public void importTemplateExcel(HttpServletResponse response, String sheetName, String title)
+    public void importTemplateExcel(Response response, String sheetName, String title)
     {
-        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        response.setCharacterEncoding("utf-8");
+//        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+//        response.setCharacterEncoding("utf-8");
         this.init(null, sheetName, title, Type.IMPORT);
         exportExcel(response);
     }
@@ -609,7 +611,7 @@ public class ExcelUtil<T>
      * 
      * @return 结果
      */
-    public void exportExcel(HttpServletResponse response)
+    public void exportExcel(Response response)
     {
         try
         {
