@@ -16,7 +16,10 @@
     </description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>io.github.stylesmile</groupId>
+            <artifactId>fastboot-web</artifactId>
+        </dependency>
         <!-- spring-boot-devtools -->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
