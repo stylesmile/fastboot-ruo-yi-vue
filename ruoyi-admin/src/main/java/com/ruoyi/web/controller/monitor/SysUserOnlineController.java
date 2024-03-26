@@ -21,8 +21,8 @@
 //import com.ruoyi.common.core.redis.RedisCache;
 //import com.ruoyi.common.enums.BusinessType;
 //import com.ruoyi.common.utils.StringUtils;
-//import com.ruoyi.system.domain.SysUserOnline;
-//import com.ruoyi.system.service.ISysUserOnlineService;
+//import com.ruoyi.web.domain.SysUserOnline;
+//import com.ruoyi.web.service.ISysUserOnlineService;
 //
 ///**
 // * 在线用户监控

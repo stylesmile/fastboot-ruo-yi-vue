@@ -20,7 +20,7 @@
 //import com.ruoyi.common.core.domain.entity.SysMenu;
 //import com.ruoyi.common.enums.BusinessType;
 //import com.ruoyi.common.utils.StringUtils;
-//import com.ruoyi.system.service.ISysMenuService;
+//import com.ruoyi.web.service.ISysMenuService;
 //
 ///**
 // * 菜单信息

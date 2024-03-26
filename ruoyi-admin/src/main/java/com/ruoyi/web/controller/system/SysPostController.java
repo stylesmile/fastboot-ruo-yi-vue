@@ -20,8 +20,8 @@
 //import com.ruoyi.common.core.page.TableDataInfo;
 //import com.ruoyi.common.enums.BusinessType;
 //import com.ruoyi.common.utils.poi.ExcelUtil;
-//import com.ruoyi.system.domain.SysPost;
-//import com.ruoyi.system.service.ISysPostService;
+//import com.ruoyi.web.domain.SysPost;
+//import com.ruoyi.web.service.ISysPostService;
 //
 ///**
 // * 岗位信息操作处理
