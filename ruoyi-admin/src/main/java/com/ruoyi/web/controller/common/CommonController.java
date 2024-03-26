@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import io.github.stylesmile.annotation.RequestMapping;
+import io.github.stylesmile.file.UploadedFile;
+import io.github.stylesmile.server.Request;
+import io.github.stylesmile.server.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +49,9 @@ public class CommonController
      * @param fileName 文件名称
      * @param delete 是否删除
      */
-    @GetMapping("/download")
-    public void fileDownload(String fileName, Boolean delete, HttpServletResponse response, HttpServletRequest request)
+    @RequestMapping("/download")
+//    @GetMapping("/download")
+    public void fileDownload(String fileName, Boolean delete, Response response, Request request)
     {
         try
         {
@@ -56,7 +62,7 @@ public class CommonController
             String realFileName = System.currentTimeMillis() + fileName.substring(fileName.indexOf("_") + 1);
             String filePath = RuoYiConfig.getDownloadPath() + fileName;
 
-            response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+//            response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             FileUtils.setAttachmentResponseHeader(response, realFileName);
             FileUtils.writeBytes(filePath, response.getOutputStream());
             if (delete)
@@ -73,8 +79,10 @@ public class CommonController
     /**
      * 通用上传请求（单个）
      */
-    @PostMapping("/upload")
-    public AjaxResult uploadFile(MultipartFile file) throws Exception
+//    @PostMapping("/upload")
+    @RequestMapping("/upload")
+//    public AjaxResult uploadFile(MultipartFile file) throws Exception
+    public AjaxResult uploadFile(UploadedFile file) throws Exception
     {
         try
         {
@@ -87,7 +95,8 @@ public class CommonController
             ajax.put("url", url);
             ajax.put("fileName", fileName);
             ajax.put("newFileName", FileUtils.getName(fileName));
-            ajax.put("originalFilename", file.getOriginalFilename());
+//            ajax.put("originalFilename", file.getOriginalFilename());
+            ajax.put("originalFilename", file.getName());
             return ajax;
         }
         catch (Exception e)
@@ -99,8 +108,10 @@ public class CommonController
     /**
      * 通用上传请求（多个）
      */
-    @PostMapping("/uploads")
-    public AjaxResult uploadFiles(List<MultipartFile> files) throws Exception
+//    @PostMapping("/uploads")
+    @RequestMapping("/uploads")
+//    public AjaxResult uploadFiles(List<MultipartFile> files) throws Exception
+    public AjaxResult uploadFiles(List<UploadedFile> files) throws Exception
     {
         try
         {
@@ -110,7 +121,7 @@ public class CommonController
             List<String> fileNames = new ArrayList<String>();
             List<String> newFileNames = new ArrayList<String>();
             List<String> originalFilenames = new ArrayList<String>();
-            for (MultipartFile file : files)
+            for (UploadedFile file : files)
             {
                 // 上传并返回新文件名称
                 String fileName = FileUploadUtils.upload(filePath, file);
@@ -118,7 +129,7 @@ public class CommonController
                 urls.add(url);
                 fileNames.add(fileName);
                 newFileNames.add(FileUtils.getName(fileName));
-                originalFilenames.add(file.getOriginalFilename());
+                originalFilenames.add(file.getName());
             }
             AjaxResult ajax = AjaxResult.success();
             ajax.put("urls", StringUtils.join(urls, FILE_DELIMETER));
@@ -136,8 +147,10 @@ public class CommonController
     /**
      * 本地资源通用下载
      */
-    @GetMapping("/download/resource")
-    public void resourceDownload(String resource, HttpServletRequest request, HttpServletResponse response)
+//    @GetMapping("/download/resource")
+    @RequestMapping("/download/resource")
+//    public void resourceDownload(String resource, HttpServletRequest request, HttpServletResponse response)
+    public void resourceDownload(String resource, Request request, Response response)
             throws Exception
     {
         try
@@ -152,7 +165,7 @@ public class CommonController
             String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
             // 下载名称
             String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
-            response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+//            response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             FileUtils.setAttachmentResponseHeader(response, downloadName);
             FileUtils.writeBytes(downloadPath, response.getOutputStream());
         }

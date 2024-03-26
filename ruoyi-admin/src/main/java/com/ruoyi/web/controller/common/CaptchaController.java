@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
+
+import io.github.stylesmile.annotation.RequestMapping;
+import io.github.stylesmile.server.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FastByteArrayOutputStream;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.google.code.kaptcha.Producer;
 import com.ruoyi.common.config.RuoYiConfig;
 import com.ruoyi.common.constant.CacheConstants;
@@ -43,8 +43,9 @@ public class CaptchaController
     /**
      * 生成验证码
      */
-    @GetMapping("/captchaImage")
-    public AjaxResult getCode(HttpServletResponse response) throws IOException
+    @RequestMapping("/captchaImage")
+//    public AjaxResult getCode(HttpServletResponse response) throws IOException
+    public AjaxResult getCode(Response response) throws IOException
     {
         AjaxResult ajax = AjaxResult.success();
         boolean captchaEnabled = configService.selectCaptchaEnabled();
