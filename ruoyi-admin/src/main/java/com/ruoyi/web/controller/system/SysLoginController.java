@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginBody;
 import com.ruoyi.framework.web.service.SysLoginService;
 import com.ruoyi.framework.web.service.SysPermissionService;
-import com.ruoyi.system.service.ISysMenuService;
+import com.ruoyi.web.service.ISysMenuService;
 import com.ruoyi.web.controller.common.SessionService;
 import io.github.stylesmile.annotation.AutoWired;
 import io.github.stylesmile.annotation.RequestBody;

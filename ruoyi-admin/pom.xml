@@ -65,7 +65,10 @@
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-framework</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.github.stylesmile</groupId>
+            <artifactId>fastboot-mybatis-plus</artifactId>
+        </dependency>
         <!-- 定时任务-->
 <!--        <dependency>-->
 <!--            <groupId>com.ruoyi</groupId>-->
