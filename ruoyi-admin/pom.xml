@@ -54,10 +54,10 @@
         </dependency>
 
         <!-- 定时任务-->
-        <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-quartz</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.ruoyi</groupId>-->
+<!--            <artifactId>ruoyi-quartz</artifactId>-->
+<!--        </dependency>-->
 
         <!-- 代码生成-->
         <dependency>

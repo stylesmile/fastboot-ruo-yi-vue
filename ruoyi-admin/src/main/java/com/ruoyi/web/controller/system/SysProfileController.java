@@ -1,6 +1,7 @@
 package com.ruoyi.web.controller.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,9 +29,9 @@ import com.ruoyi.system.service.ISysUserService;
  * 
  * @author ruoyi
  */
-@RestController
+@Controller
 @RequestMapping("/system/user/profile")
-public class SysProfileController extends BaseController
+public class ControllerSysProfileController extends BaseController
 {
     @Autowired
     private ISysUserService userService;

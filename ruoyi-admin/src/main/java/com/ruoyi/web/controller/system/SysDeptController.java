@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +28,8 @@ import com.ruoyi.system.service.ISysDeptService;
  * 
  * @author ruoyi
  */
-@RestController
-@RequestMapping("/system/dept")
+@Controller
+//@RequestMapping("/system/dept")
 public class SysDeptController extends BaseController
 {
     @Autowired
