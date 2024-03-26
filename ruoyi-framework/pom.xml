@@ -69,6 +69,12 @@
             <artifactId>ruoyi-system</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.21</version>
+        </dependency>
     </dependencies>
+
 
 </project>

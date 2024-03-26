@@ -22,7 +22,10 @@
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-common</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.github.stylesmile</groupId>
+            <artifactId>fastboot-mybatis-plus</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
