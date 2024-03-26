@@ -1,14 +1,14 @@
 package com.ruoyi.framework.config;
 
+import io.github.stylesmile.annotation.Service;
 import io.github.stylesmile.server.Request;
-import org.springframework.stereotype.Component;
 
 /**
  * 服务相关配置
  *
  * @author ruoyi
  */
-@Component
+@Service
 public class ServerConfig {
     /**
      * 获取完整的请求路径，包括：域名，端口，上下文访问路径

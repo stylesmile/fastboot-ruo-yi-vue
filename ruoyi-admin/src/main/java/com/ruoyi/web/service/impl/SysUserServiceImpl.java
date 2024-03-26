@@ -3,7 +3,7 @@ package com.ruoyi.web.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.validation.Validator;
+//import javax.validation.Validator;
 
 import com.ruoyi.common.utils.MD5Util;
 import com.ruoyi.web.service.ISysConfigService;
@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.constant.UserConstants;
@@ -19,7 +19,7 @@ import com.ruoyi.common.core.domain.entity.SysRole;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.bean.BeanValidators;
+//import com.ruoyi.common.utils.bean.BeanValidators;
 import com.ruoyi.web.domain.SysPost;
 import com.ruoyi.web.domain.SysUserPost;
 import com.ruoyi.web.domain.SysUserRole;
@@ -58,8 +58,8 @@ public class SysUserServiceImpl implements ISysUserService
     @Autowired
     private ISysConfigService configService;
 
-    @Autowired
-    protected Validator validator;
+//    @Autowired
+//    protected Validator validator;
 
     /**
      * 根据条件分页查询用户列表
@@ -253,7 +253,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @return 结果
      */
     @Override
-    @Transactional
+//    @Transactional
     public int insertUser(SysUser user)
     {
         // 新增用户信息
@@ -284,7 +284,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @return 结果
      */
     @Override
-    @Transactional
+//    @Transactional
     public int updateUser(SysUser user)
     {
         Long userId = user.getUserId();
@@ -306,7 +306,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @param roleIds 角色组
      */
     @Override
-    @Transactional
+//    @Transactional
     public void insertUserAuth(Long userId, Long[] roleIds)
     {
         userRoleMapper.deleteUserRoleByUserId(userId);
@@ -438,7 +438,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @return 结果
      */
     @Override
-    @Transactional
+//    @Transactional
     public int deleteUserById(Long userId)
     {
         // 删除用户与角色关联
@@ -455,7 +455,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @return 结果
      */
     @Override
-    @Transactional
+//    @Transactional
     public int deleteUserByIds(Long[] userIds)
     {
         for (Long userId : userIds)
@@ -498,7 +498,7 @@ public class SysUserServiceImpl implements ISysUserService
                 SysUser u = userMapper.selectUserByUserName(user.getUserName());
                 if (StringUtils.isNull(u))
                 {
-                    BeanValidators.validateWithException(validator, user);
+                    //BeanValidators.validateWithException(validator, user);
                     user.setPassword(MD5Util.calculateMD5(password));
                     user.setCreateBy(operName);
                     userMapper.insertUser(user);
@@ -507,7 +507,7 @@ public class SysUserServiceImpl implements ISysUserService
                 }
                 else if (isUpdateSupport)
                 {
-                    BeanValidators.validateWithException(validator, user);
+                    //BeanValidators.validateWithException(validator, user);
                     checkUserAllowed(u);
                     checkUserDataScope(u.getUserId());
                     user.setUserId(u.getUserId());

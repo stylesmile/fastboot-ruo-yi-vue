@@ -1,10 +1,12 @@
 package com.ruoyi.framework.config;
 
 import java.util.Properties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+
+import io.github.stylesmile.annotation.Service;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
+import io.github.stylesmile.ioc.Bean;
+
 import static com.google.code.kaptcha.Constants.*;
 
 /**
@@ -12,10 +14,11 @@ import static com.google.code.kaptcha.Constants.*;
  * 
  * @author ruoyi
  */
-@Configuration
+@Service
 public class CaptchaConfig
 {
-    @Bean(name = "captchaProducer")
+//    @Bean(name = "captchaProducer")
+    @Bean(value = "captchaProducer")
     public DefaultKaptcha getKaptchaBean()
     {
         DefaultKaptcha defaultKaptcha = new DefaultKaptcha();
@@ -43,7 +46,7 @@ public class CaptchaConfig
         return defaultKaptcha;
     }
 
-    @Bean(name = "captchaProducerMath")
+    @Bean(value = "captchaProducerMath")
     public DefaultKaptcha getKaptchaBeanMath()
     {
         DefaultKaptcha defaultKaptcha = new DefaultKaptcha();
