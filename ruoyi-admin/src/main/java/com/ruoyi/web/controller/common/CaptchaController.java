@@ -3,16 +3,18 @@ package com.ruoyi.web.controller.common;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.Resource;
+//import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 
+import io.github.stylesmile.annotation.AutoWired;
 import io.github.stylesmile.annotation.RequestMapping;
 import io.github.stylesmile.server.Response;
+import io.github.stylesmile.tool.PropertyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FastByteArrayOutputStream;
 import com.google.code.kaptcha.Producer;
-import com.ruoyi.common.config.RuoYiConfig;
+//import com.ruoyi.common.config.RuoYiConfig;
 import com.ruoyi.common.constant.CacheConstants;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.core.domain.AjaxResult;
@@ -29,10 +31,12 @@ import com.ruoyi.web.service.ISysConfigService;
 @Controller
 public class CaptchaController
 {
-    @Resource(name = "captchaProducer")
+//    @Resource(name = "captchaProducer")
+    @AutoWired
     private Producer captchaProducer;
 
-    @Resource(name = "captchaProducerMath")
+//    @Resource(name = "captchaProducerMath")
+    @AutoWired
     private Producer captchaProducerMath;
 
     @Autowired
@@ -63,7 +67,8 @@ public class CaptchaController
         BufferedImage image = null;
 
         // 生成验证码
-        String captchaType = RuoYiConfig.getCaptchaType();
+//        String captchaType = RuoYiConfig.getCaptchaType();
+        String captchaType = PropertyUtil.getProperty("captchaType");
         if ("math".equals(captchaType))
         {
             String capText = captchaProducerMath.createText();

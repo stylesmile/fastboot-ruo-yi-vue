@@ -1,7 +1,7 @@
 package com.ruoyi.web.domain;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -47,8 +47,8 @@ public class SysConfig extends BaseEntity
         this.configId = configId;
     }
 
-    @NotBlank(message = "参数名称不能为空")
-    @Size(min = 0, max = 100, message = "参数名称不能超过100个字符")
+//    @NotBlank(message = "参数名称不能为空")
+//    @Size(min = 0, max = 100, message = "参数名称不能超过100个字符")
     public String getConfigName()
     {
         return configName;
@@ -59,8 +59,8 @@ public class SysConfig extends BaseEntity
         this.configName = configName;
     }
 
-    @NotBlank(message = "参数键名长度不能为空")
-    @Size(min = 0, max = 100, message = "参数键名长度不能超过100个字符")
+//    @NotBlank(message = "参数键名长度不能为空")
+//    @Size(min = 0, max = 100, message = "参数键名长度不能超过100个字符")
     public String getConfigKey()
     {
         return configKey;
@@ -71,8 +71,8 @@ public class SysConfig extends BaseEntity
         this.configKey = configKey;
     }
 
-    @NotBlank(message = "参数键值不能为空")
-    @Size(min = 0, max = 500, message = "参数键值长度不能超过500个字符")
+//    @NotBlank(message = "参数键值不能为空")
+//    @Size(min = 0, max = 500, message = "参数键值长度不能超过500个字符")
     public String getConfigValue()
     {
         return configValue;
