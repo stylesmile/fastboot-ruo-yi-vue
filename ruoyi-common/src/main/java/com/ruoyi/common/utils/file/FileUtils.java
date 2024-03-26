@@ -12,9 +12,10 @@ import java.nio.charset.StandardCharsets;
 
 import io.github.stylesmile.server.Request;
 import io.github.stylesmile.server.Response;
+import io.github.stylesmile.tool.PropertyUtil;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
-import com.ruoyi.common.config.RuoYiConfig;
+//import com.ruoyi.common.config.RuoYiConfig;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.uuid.IdUtils;
@@ -74,7 +75,8 @@ public class FileUtils
      */
     public static String writeImportBytes(byte[] data) throws IOException
     {
-        return writeBytes(data, RuoYiConfig.getImportPath());
+//        return writeBytes(data, RuoYiConfig.getImportPath());
+        return writeBytes(data, PropertyUtil.getProperty("importPath"));
     }
 
     /**

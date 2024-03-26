@@ -1,8 +1,8 @@
 package com.ruoyi.common.core.domain.entity;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.Pattern;
+//import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -44,8 +44,8 @@ public class SysDictType extends BaseEntity
         this.dictId = dictId;
     }
 
-    @NotBlank(message = "字典名称不能为空")
-    @Size(min = 0, max = 100, message = "字典类型名称长度不能超过100个字符")
+//    @NotBlank(message = "字典名称不能为空")
+//    @Size(min = 0, max = 100, message = "字典类型名称长度不能超过100个字符")
     public String getDictName()
     {
         return dictName;
@@ -56,9 +56,9 @@ public class SysDictType extends BaseEntity
         this.dictName = dictName;
     }
 
-    @NotBlank(message = "字典类型不能为空")
-    @Size(min = 0, max = 100, message = "字典类型类型长度不能超过100个字符")
-    @Pattern(regexp = "^[a-z][a-z0-9_]*$", message = "字典类型必须以字母开头，且只能为（小写字母，数字，下滑线）")
+//    @NotBlank(message = "字典类型不能为空")
+//    @Size(min = 0, max = 100, message = "字典类型类型长度不能超过100个字符")
+//    @Pattern(regexp = "^[a-z][a-z0-9_]*$", message = "字典类型必须以字母开头，且只能为（小写字母，数字，下滑线）")
     public String getDictType()
     {
         return dictType;

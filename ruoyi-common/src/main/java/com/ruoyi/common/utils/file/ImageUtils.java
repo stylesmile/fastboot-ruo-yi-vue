@@ -6,10 +6,13 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Arrays;
+
+import io.github.stylesmile.tool.PropertyUtil;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ruoyi.common.config.RuoYiConfig;
+//import com.ruoyi.common.config.RuoYiConfig;
+//import com.ruoyi.common.config.RuoYiConfig;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.utils.StringUtils;
 
@@ -79,7 +82,8 @@ public class ImageUtils
             else
             {
                 // 本机地址
-                String localPath = RuoYiConfig.getProfile();
+//                String localPath = RuoYiConfig.getProfile();
+                String localPath = PropertyUtil.getProperty("profile");
                 String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
             }

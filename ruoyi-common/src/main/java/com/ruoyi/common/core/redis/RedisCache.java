@@ -1,8 +1,8 @@
 package com.ruoyi.common.core.redis;
 
 import io.github.stylesmile.annotation.AutoWired;
+import io.github.stylesmile.annotation.Service;
 import io.github.stylesmile.jedis.JedisTemplate;
-import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @author ruoyi
  **/
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
-@Component
+@Service
 public class RedisCache {
     @AutoWired
     public JedisTemplate redisTemplate;

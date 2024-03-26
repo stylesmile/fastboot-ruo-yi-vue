@@ -1,10 +1,11 @@
 package com.ruoyi.common.utils.ip;
 
+import io.github.stylesmile.tool.PropertyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.ruoyi.common.config.RuoYiConfig;
+//import com.ruoyi.common.config.RuoYiConfig;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
@@ -31,7 +32,8 @@ public class AddressUtils
         {
             return "内网IP";
         }
-        if (RuoYiConfig.isAddressEnabled())
+//        if (RuoYiConfig.isAddressEnabled())
+        if (PropertyUtil.getProperty("addressEnabled").equals("true") )
         {
             try
             {

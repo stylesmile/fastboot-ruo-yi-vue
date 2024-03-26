@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.springframework.util.AntPathMatcher;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.core.text.StrFormatter;
 
@@ -549,21 +548,21 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
      * @param strs 需要检查的字符串数组
      * @return 是否匹配
      */
-    public static boolean matches(String str, List<String> strs)
-    {
-        if (isEmpty(str) || isEmpty(strs))
-        {
-            return false;
-        }
-        for (String pattern : strs)
-        {
-            if (isMatch(pattern, str))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public static boolean matches(String str, List<String> strs)
+//    {
+//        if (isEmpty(str) || isEmpty(strs))
+//        {
+//            return false;
+//        }
+//        for (String pattern : strs)
+//        {
+//            if (isMatch(pattern, str))
+//            {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     /**
      * 判断url是否与规则配置: 
@@ -575,11 +574,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
      * @param url 需要匹配的url
      * @return
      */
-    public static boolean isMatch(String pattern, String url)
-    {
-        AntPathMatcher matcher = new AntPathMatcher();
-        return matcher.match(pattern, url);
-    }
+//    public static boolean isMatch(String pattern, String url)
+//    {
+//        AntPathMatcher matcher = new AntPathMatcher();
+//        return matcher.match(pattern, url);
+//    }
 
     @SuppressWarnings("unchecked")
     public static <T> T cast(Object obj)
