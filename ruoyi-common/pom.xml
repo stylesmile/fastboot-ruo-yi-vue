@@ -17,6 +17,13 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>io.github.stylesmile</groupId>
             <artifactId>fastboot-web</artifactId>
         </dependency>
