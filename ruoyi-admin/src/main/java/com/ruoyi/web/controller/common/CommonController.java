@@ -67,13 +67,14 @@ public class CommonController {
 //    @PostMapping("/upload")
     @RequestMapping("/upload")
 //    public AjaxResult uploadFile(MultipartFile file) throws Exception
-    public AjaxResult uploadFile(UploadedFile file) throws Exception {
+    public AjaxResult uploadFile(UploadedFile file, Request request) throws Exception {
         try {
             // 上传文件路径
             String filePath = RuoYiConfig.getUploadPath();
             // 上传并返回新文件名称
             String fileName = FileUploadUtils.upload(filePath, file);
-            String url = serverConfig.getUrl() + fileName;
+            String url = serverConfig.getUrl(request) + fileName;
+//            String url =  fileName;
             AjaxResult ajax = AjaxResult.success();
             ajax.put("url", url);
             ajax.put("fileName", fileName);
@@ -92,7 +93,7 @@ public class CommonController {
 //    @PostMapping("/uploads")
     @RequestMapping("/uploads")
 //    public AjaxResult uploadFiles(List<MultipartFile> files) throws Exception
-    public AjaxResult uploadFiles(List<UploadedFile> files) throws Exception {
+    public AjaxResult uploadFiles(List<UploadedFile> files, Request request) throws Exception {
         try {
             // 上传文件路径
             String filePath = RuoYiConfig.getUploadPath();
@@ -103,7 +104,7 @@ public class CommonController {
             for (UploadedFile file : files) {
                 // 上传并返回新文件名称
                 String fileName = FileUploadUtils.upload(filePath, file);
-                String url = serverConfig.getUrl() + fileName;
+                String url = serverConfig.getUrl(request) + fileName;
                 urls.add(url);
                 fileNames.add(fileName);
                 newFileNames.add(FileUtils.getName(fileName));
