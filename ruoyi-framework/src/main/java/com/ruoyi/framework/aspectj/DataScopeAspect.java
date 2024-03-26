@@ -12,7 +12,7 @@ import com.ruoyi.common.core.domain.entity.SysRole;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.core.text.Convert;
-import com.ruoyi.common.utils.SecurityUtils;
+//import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.security.context.PermissionContextHolder;
 
@@ -65,18 +65,18 @@ public class DataScopeAspect
     protected void handleDataScope(final JoinPoint joinPoint, DataScope controllerDataScope)
     {
         // 获取当前的用户
-        LoginUser loginUser = SecurityUtils.getLoginUser();
-        if (StringUtils.isNotNull(loginUser))
-        {
-            SysUser currentUser = loginUser.getUser();
-            // 如果是超级管理员，则不过滤数据
-            if (StringUtils.isNotNull(currentUser) && !currentUser.isAdmin())
-            {
-                String permission = StringUtils.defaultIfEmpty(controllerDataScope.permission(), PermissionContextHolder.getContext());
-                dataScopeFilter(joinPoint, currentUser, controllerDataScope.deptAlias(),
-                        controllerDataScope.userAlias(), permission);
-            }
-        }
+//        LoginUser loginUser = SecurityUtils.getLoginUser();
+//        if (StringUtils.isNotNull(loginUser))
+//        {
+//            SysUser currentUser = loginUser.getUser();
+//            // 如果是超级管理员，则不过滤数据
+//            if (StringUtils.isNotNull(currentUser) && !currentUser.isAdmin())
+//            {
+//                String permission = StringUtils.defaultIfEmpty(controllerDataScope.permission(), PermissionContextHolder.getContext());
+//                dataScopeFilter(joinPoint, currentUser, controllerDataScope.deptAlias(),
+//                        controllerDataScope.userAlias(), permission);
+//            }
+//        }
     }
 
     /**
